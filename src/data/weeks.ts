@@ -698,21 +698,49 @@ details: [
   {
     number: 15,
     dates: "Week 15",
-    focus: "Documentation & Technical Writing",
-    summary:
-      "Mid-point documentation and technical writing session for current projects.",
-    tasks: [
-      "Updated project documentation for Kong and Elastic",
-      "Drafted technical guides for internal use",
-      "Conducted status review with supervisors",
-    ],
-    tools: ["Markdown", "Confluence"],
-    reflection:
-      "Good documentation is as important as the code it describes.",
+focus: "Project Closure & System Troubleshooting",
+
+summary:
+  "Focused on attending project closing meeting at UMPSA and participating in monitoring session with Politeknik Lecturer Puan Maznah Ahmad.",
+
+tasks: [
+  "Attended UMPSA project closure meeting",
+  "Participated in monitoring session with lecturer",
+  "Tested system authentication during project evaluation",
+  "Identified issue with login delay after password reset",
+],
+
+tools: [
+  "UMPSA System",
+],
+
+reflection:
+  "This week improved my understanding of real-world system troubleshooting, especially related to authentication issues in a live project environment.",
+
+details: [
+  "Activities Completed:",
+  "• Attended final project meeting at UMPSA",
+  "• Tested system authentication during live environment usage",
+  "• Observed delay issue after password reset during login process",
+  "• Joined monitoring and evaluation session with lecturer",
+  "\u00A0",
+
+  "Key Insights & Understanding:",
+  "• Learned how authentication systems behave after password reset",
+  "• Understood possible delay issues in user authentication flow",
+  "• Gained exposure to real project testing and system validation process",
+  "\u00A0",
+
+  "Impacts:",
+  "• Improved troubleshooting skills in real system environments",
+  "• Increased understanding of authentication workflows and issues",
+],
 
       images: [
       // { src: "/weeks/meeting.jpg", alt: "Meeting with UTM", caption: "First meeting regarding API Gateway" },
-      { src: "/weeks/server1.png", alt: "Networking Study", caption: "Installing Proxmox in Office Server" },
+      { src: "/weeks/UMPclosure.png", alt: "Closure Meeting", caption: "Meeting Penutup Project antara Ezidea & UMPSA" },
+      { src: "/weeks/UMPtesting.png", alt: "Testing Meeting", caption: "Testing & Debbugging the new system with new UMP Staff and Student" },
+      { src: "/weeks/pemantauan.png", alt: "Pemantauan", caption: "Sesi Pemantauan bersama pensyarah PSIS Puan Maznah Ahmad. Secara Online." },
 
     ],
 
