@@ -749,21 +749,47 @@ details: [
   {
     number: 16,
     dates: "Week 16",
-    focus: "Network Security Auditing",
-    summary:
-      "Performed security audits on internal network segments and exposed services.",
-    tasks: [
-      "Ran vulnerability scans using OpenVAS/Nmap",
-      "Identified and patched outdated software versions",
-      "Configured firewall rules to follow least privilege",
-    ],
-    tools: ["Nmap", "OpenVAS", "iptables"],
-    reflection:
-      "Auditing reveals the 'hidden' technical debt that accumulates over time.",
+focus: "Industrial Training Documentation & Project Meeting",
+
+summary:
+  "Focused on completing industrial training report documentation and attending UTM project progress meeting as Ezidea representative.",
+
+tasks: [
+  "Completed industrial training report after supervisor approval",
+  "Attended UTM project progress meeting as Ezidea representative",
+  "Recorded meeting minutes during project discussion",
+],
+
+tools: [
+  "Microsoft Teams",
+  "Meeting Documentation",
+],
+
+reflection:
+  "This week improved my professional communication and documentation skills through report preparation and participation in project meetings.",
+
+details: [
+  "Activities Completed:",
+  "• Finalized industrial training report after receiving supervisor approval",
+  "• Represented Ezidea during UTM project progress meeting",
+  "• Took meeting minutes and documented important discussion points",
+  "\u00A0",
+
+  "Key Insights & Understanding:",
+  "• Learned proper documentation process for industrial training reports",
+  "• Improved understanding of professional meeting management and communication",
+  "• Gained experience in recording and organizing meeting information",
+  "\u00A0",
+
+  "Impacts:",
+  "• Enhanced communication and documentation skills",
+  "• Improved ability to manage and organize project information",
+],
+
 
       images: [
       // { src: "/weeks/meeting.jpg", alt: "Meeting with UTM", caption: "First meeting regarding API Gateway" },
-      { src: "/weeks/server1.png", alt: "Networking Study", caption: "Installing Proxmox in Office Server" },
+      { src: "/weeks/UTMgmeet.png", alt: "Meeting with UTM", caption: "Online Meeting with UTM about Requirements" },
 
     ],
   },
@@ -772,21 +798,52 @@ details: [
   {
     number: 17,
     dates: "Week 17",
-    focus: "Cloud Infrastructure Basics",
-    summary:
-      "Introduction to cloud provider services and infrastructure as code.",
-    tasks: [
-      "Provisioned resources on AWS/Azure using the web console",
-      "Explored Terraform basics for multi-cloud deployments",
-      "Configured S3 buckets and IAM policies",
-    ],
-    tools: ["AWS", "Terraform", "IAM"],
-    reflection:
-      "The shift from on-prem to cloud is more about changing the management mindset.",
+focus: "Elastic Stack Deployment & Client Support",
 
+summary:
+  "Focused on official Elastic Stack deployment at MARDI and involvement in tender submission process at Lembaga Getah Malaysia (LGM).",
+
+tasks: [
+  "Installed and configured 3 Elasticsearch nodes at MARDI",
+  "Deployed Kibana and Fleet Agent environment",
+  "Performed troubleshooting for CPU and Memory monitoring issues showing N/A",
+  "Participated in tender submission process at Lembaga Getah Malaysia (LGM)",
+],
+
+tools: [
+  "Elasticsearch",
+  //"Kibana",
+  //"Fleet Agent",
+  "Rocky Linux",
+  "Linux Terminal",
+],
+
+reflection:
+  "This week provided valuable real-world experience in enterprise deployment and improved my confidence in handling client-side infrastructure implementation and troubleshooting tasks.",
+
+details: [
+  "Activities Completed:",
+  "• Performed official Elastic Stack deployment at MARDI",
+  "• Configured 3 Elasticsearch nodes, Kibana, and Fleet Agent setup",
+  "• Troubleshooted CPU and Memory monitoring issue displaying N/A in Fleet/Kibana",
+  "• Assisted in tender submission process at Lembaga Getah Malaysia (LGM)",
+  "\u00A0",
+
+  "Key Insights & Understanding:",
+  "• Learned real-world deployment workflow for Elastic Stack infrastructure",
+  "• Improved understanding of monitoring integration and troubleshooting methods",
+  "• Gained exposure to client project handling and tender submission process",
+  "\u00A0",
+
+  "Impacts:",
+  "• Enhanced practical skills in enterprise system implementation",
+  "• Increased confidence in handling deployment and troubleshooting with real clients",
+],
       images: [
       // { src: "/weeks/meeting.jpg", alt: "Meeting with UTM", caption: "First meeting regarding API Gateway" },
-      { src: "/weeks/server1.png", alt: "Networking Study", caption: "Installing Proxmox in Office Server" },
+      { src: "/weeks/mardiES.png", alt: "ES INstallation ", caption: "Mardi Elasticsearch Installation Done" },
+      { src: "/weeks/ESproblemMardi.png", alt: "ES INstallation ", caption: "Mardi Fleet Agent N/A Issue" },
+      { src: "/weeks/LGM.png", alt: "LGM Tender", caption: "Tender Submission at Lembaga Getah Malaysia" },
 
     ],
   },
@@ -795,21 +852,55 @@ details: [
   {
     number: 18,
     dates: "Week 18",
-    focus: "Containerization with Docker",
-    summary:
-      "Deep dive into Docker, container images, and local development orchestration.",
-    tasks: [
-      "Built custom Docker images for Python/Node.js apps",
-      "Used Docker Compose to spin up multi-container stacks",
-      "Learned about container security and image layering",
-    ],
-    tools: ["Docker", "Docker Compose"],
-    reflection:
-      "Containers solve the 'works on my machine' problem once and for all.",
+focus: "Elastic Stack Monitoring & Upgrade Management",
 
+summary:
+  "Focused on tender document submission, resolving Elastic Stack monitoring issues at MARDI, and learning Elasticsearch upgrade procedures from version 8.x to 9.x.",
+
+tasks: [
+  "Prepared and submitted tender documents to Lembaga Perindustrian Kayu Malaysia (MTIB) at Menara PGRM",
+  "Resolved CPU and Memory monitoring issues showing N/A at MARDI",
+  "Installed Elastic Agent on application and database servers",
+  "Learned upgrade process for Elasticsearch, Fleet, and Kibana from version 8.x to 9.x",
+],
+
+tools: [
+  "Elasticsearch",
+  "Kibana",
+  "Fleet",
+  "Elastic Agent",
+  "Linux Terminal",
+],
+
+reflection:
+  "This week improved my understanding of enterprise monitoring systems, upgrade management, and professional documentation processes in real working environments.",
+
+details: [
+  "Activities Completed:",
+  "• Prepared and submitted tender documents to MITB at Menara PGRM",
+  "• Troubleshooted CPU and Memory monitoring issues in Elastic Stack environment at MARDI",
+  "• Installed Elastic Agent on application and database servers",
+  "• Studied rolling upgrade process for Elasticsearch, Fleet, and Kibana from version 8.x to 9.x",
+  "\u00A0",
+
+  "Key Insights & Understanding:",
+  "• Learned professional tender preparation and submission workflow",
+  "• Improved understanding of Elastic Stack monitoring and troubleshooting",
+  "• Gained knowledge of Elastic Agent deployment on enterprise servers",
+  "• Understood node-by-node upgrade procedures without service interruption",
+  "\u00A0",
+
+  "Impacts:",
+  "• Enhanced documentation and technical deployment skills",
+  "• Increased practical experience in managing enterprise monitoring systems",
+  "• Improved confidence in handling real-world Elastic Stack infrastructure",
+],
       images: [
       // { src: "/weeks/meeting.jpg", alt: "Meeting with UTM", caption: "First meeting regarding API Gateway" },
-      { src: "/weeks/server1.png", alt: "Networking Study", caption: "Installing Proxmox in Office Server" },
+      { src: "/weeks/mitbtender.png", alt: "Tender MItb", caption: "Tender Preparation for MITB" },
+      { src: "/weeks/submitb.png", alt: "Tender MItb", caption: "Submission Tender at MITB" },
+      { src: "/weeks/mardivisit.png", alt: "Mardi Visit", caption: "Visitting Mardi again to resolve the issue" },
+      { src: "/weeks/mardisolved.png", alt: "Mardi ES", caption: "Mardi Fleet Agent issue Solved" },
 
     ],
   },
