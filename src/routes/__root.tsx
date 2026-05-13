@@ -9,7 +9,6 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 
 function NotFoundComponent() {
@@ -109,26 +108,15 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <SidebarProvider>
-        <div className="min-h-screen flex w-full">
-          <AppSidebar />
-          <div className="flex-1 flex flex-col min-w-0">
-            <header className="sticky top-0 z-30 h-14 flex items-center gap-3 border-b bg-background/80 backdrop-blur px-4">
-              <SidebarTrigger />
-              <div className="h-6 w-px bg-border" />
-              <Link to="/" className="font-display font-bold text-sm md:text-base">
-                FINAL REPORT · <span className="text-gradient-brand">DUT6019</span>
-              </Link>
-            </header>
-            <main className="flex-1 px-4 md:px-8 py-8 max-w-6xl w-full mx-auto">
-              <Outlet />
-            </main>
-            <footer className="border-t py-6 px-4 md:px-8 text-center text-xs text-muted-foreground">
-              © HAZITZ IKLIL BIN HESSLY HAFIZ — 17DDT23F1999 — 2026 Industrial Training Report — Diploma in Information Technology (Digital Technology)
-            </footer>
-          </div>
-        </div>
-      </SidebarProvider>
+      <div className="min-h-screen flex flex-col">
+        <AppSidebar />
+        <main className="flex-1 px-4 md:px-8 py-8 max-w-6xl w-full mx-auto">
+          <Outlet />
+        </main>
+        <footer className="border-t py-6 px-4 md:px-8 text-center text-xs text-muted-foreground">
+          © HAZITZ IKLIL BIN HESSLY HAFIZ — 17DDT23F1999 — 2026 Industrial Training Report — Diploma in Information Technology (Digital Technology)
+        </footer>
+      </div>
     </QueryClientProvider>
   );
 }

@@ -6,139 +6,96 @@ import {
   Building2,
   CalendarDays,
   FileText,
-  ChevronDown,
+  Menu,
+  X,
 } from "lucide-react";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
-} from "@/components/ui/sidebar";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+import { useState } from "react";
 import { weeks } from "@/data/weeks";
 import logo from "@/assets/ezidea-logo.png";
 
 const mainItems = [
   { title: "Home", url: "/", icon: Home },
-  { title: "Acknowledgements", url: "/acknowledgements", icon: Heart },
   { title: "Introduction", url: "/introduction", icon: BookOpen },
+  { title: "Acknowledgements", url: "/acknowledgements", icon: Heart },
   { title: "Organization", url: "/organization", icon: Building2 },
+  { title: "Weekly Activities", url: "/weeks", icon: CalendarDays },
+  { title: "Technical Report", url: "/technical-report", icon: FileText },
+  { title: "Conclusion", url: "/conclusions", icon: FileText },
 ];
 
 export function AppSidebar() {
   const path = useRouterState({ select: (s) => s.location.pathname });
   const isActive = (p: string) => path === p;
-  const weeksOpen = path.startsWith("/weeks");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <Sidebar collapsible="offcanvas">
-      <SidebarHeader className="border-b border-sidebar-border">
-        <Link to="/" className="flex items-center gap-3 px-2 py-3">
-          <div className="h-10 w-10 rounded-lg bg-gradient-brand p-1.5 shadow-glow flex items-center justify-center">
+    <nav className="sticky top-0 z-50 border-b bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 backdrop-blur border-slate-700 shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+        {/* Logo & Brand */}
+        <Link to="/" className="flex items-center gap-2 flex-shrink-0" onClick={() => setMenuOpen(false)}>
+          <div className="h-10 w-10 rounded-lg bg-gradient-brand p-1.5 flex items-center justify-center shadow-glow">
             <img src={logo} alt="Ezidea" className="h-full w-full object-contain" />
           </div>
-          <div className="leading-tight">
-            <div className="font-display text-sm font-bold text-sidebar-foreground">
-              Industrial Training
+          <div className="hidden sm:block">
+            <div className="font-display text-sm font-bold text-white leading-tight">
+              Hazitz Iklil
             </div>
-            <div className="text-[11px] text-sidebar-foreground/70">
-              Hazitz Iklil · Ezidea
+            <div className="text-[10px] text-slate-400 leading-tight">
+              Industrial Training
             </div>
           </div>
         </Link>
-      </SidebarHeader>
 
-      <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Report</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {mainItems.map((item) => (
-                <SidebarMenuItem key={item.url}>
-                  <SidebarMenuButton asChild isActive={isActive(item.url)}>
-                    <Link to={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+        {/* Main Navigation Links - Desktop */}
+        <div className="hidden lg:flex items-center gap-1 flex-wrap justify-center flex-1">
+          {mainItems.map((item) => (
+            <Link
+              key={item.url}
+              to={item.url}
+              className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-all whitespace-nowrap ${
+                isActive(item.url)
+                  ? "bg-teal-500/30 text-teal-300 border border-teal-500/50"
+                  : "text-slate-300 hover:text-white hover:bg-slate-700/50 border border-transparent"
+              }`}
+            >
+              <item.icon size={16} />
+              <span>{item.title}</span>
+            </Link>
+          ))}
+        </div>
 
-              <Collapsible defaultOpen={weeksOpen} className="group/coll">
-                <SidebarMenuItem>
-                  <CollapsibleTrigger asChild>
-                    <SidebarMenuButton>
-                      <CalendarDays />
-                      <span>Weekly Activities</span>
-                      <ChevronDown className="ml-auto h-4 w-4 transition-transform group-data-[state=open]/coll:rotate-180" />
-                    </SidebarMenuButton>
-                  </CollapsibleTrigger>
-                  <CollapsibleContent>
-                    <SidebarMenuSub>
-                      <SidebarMenuSubItem>
-                        <SidebarMenuSubButton asChild isActive={path === "/weeks"}>
-                          <Link to="/weeks">All weeks</Link>
-                        </SidebarMenuSubButton>
-                      </SidebarMenuSubItem>
-                      {weeks.map((w) => (
-                        <SidebarMenuSubItem key={w.number}>
-                          <SidebarMenuSubButton
-                            asChild
-                            isActive={path === `/weeks/${w.number}`}
-                          >
-                            <Link
-                              to="/weeks/$week"
-                              params={{ week: String(w.number) }}
-                            >
-                              Week {w.number}
-                            </Link>
-                          </SidebarMenuSubButton>
-                        </SidebarMenuSubItem>
-                      ))}
-                    </SidebarMenuSub>
-                  </CollapsibleContent>
-                </SidebarMenuItem>
-              </Collapsible>
+        {/* Hamburger Menu Button - Mobile */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="lg:hidden flex items-center justify-center p-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-700/50 transition-all"
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
 
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  isActive={isActive("/technical-report")}
-                >
-                  <Link to="/technical-report">
-                    <FileText />
-                    <span>Technical Report</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  isActive={isActive("/conclusion")}
-                >
-                  <Link to="/conclusions">
-                    <FileText />
-                    <span>Conclusion</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-      </SidebarContent>
-    </Sidebar>
+      {/* Mobile Menu - Dropdown */}
+      {menuOpen && (
+        <div className="lg:hidden border-t border-slate-700 bg-slate-800/95 backdrop-blur">
+          <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-2">
+            {mainItems.map((item) => (
+              <Link
+                key={item.url}
+                to={item.url}
+                onClick={() => setMenuOpen(false)}
+                className={`flex items-center gap-3 px-4 py-3 rounded-md text-sm font-medium transition-all ${
+                  isActive(item.url)
+                    ? "bg-teal-500/30 text-teal-300 border border-teal-500/50"
+                    : "text-slate-300 hover:text-white hover:bg-slate-700/50 border border-transparent"
+                }`}
+              >
+                <item.icon size={18} />
+                <span>{item.title}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </nav>
   );
 }
