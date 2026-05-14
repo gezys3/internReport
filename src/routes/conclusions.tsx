@@ -51,17 +51,14 @@ function Page() {
       <Card>
         <CardContent className="p-8 leading-relaxed space-y-4 text-foreground/90">
           <p>
-            The 20-week industrial training at <strong>Ezidea Solutions Sdn Bhd</strong> has been a cornerstone of my academic and professional development. It provided a rare opportunity to witness how high-level cybersecurity and infrastructure projects are managed from initial kickoff to final handover.
+            The 20 weeks industrial training at <strong>Ezidea Solutions Sdn Bhd</strong> is a stepping stone to my academic and professional journey. It was a rare opportunity to witness first hand the management of a high level cybersecurity and infrastructure project, from the initial kickoff to the final handover.          
           </p>
           <p>
-            From the initial weeks of learning TCP/IP fundamentals to the final phases of deploying a complex Elastic observability stack for the UTM API Management project, every task has contributed to a more holistic understanding of IT operations. I have learned that modern technology is not just about individual tools, but about building resilient, interconnected systems that provide <em>Continuity by Design</em>.
-          </p>
+            From the first weeks of learning the basics of TCP/IP to the last stages of deploying a sophisticated Elastic observability stack for UTM API Management project, all tasks have contributed to a more holistic understanding of IT operations. Modern technology is not about individual tools but about building resilient, interconnected systems that deliver <em>Continuity by Design</em>.          </p>
           <p>
-            This experience has significantly bridged the gap between theoretical knowledge gained at Politeknik and the practical realities of the tech industry. The challenges faced—ranging from hardware troubleshooting to data migration—have sharpened my analytical thinking and problem-solving abilities.
-          </p>
+            This experience has really helped me to bridge the gap between the theoretical knowledge I got from Politeknik and the practical realities of the tech industry. “Troubleshooting hardware, migrating data… These challenges have really improved my analytical thinking and problem-solving skills.          </p>
           <p>
-            In conclusion, I am leaving Ezidea Solutions with not only technical knowledge but also with the professional discipline and a network of mentors that will guide me in my future career. I am confident that the skills acquired here will serve as a strong foundation for my contributions to the evolving landscape of Information Technology.
-          </p>
+            In conclusion, I am leaving Ezidea Solutions with technical knowledge but also with the professional discipline and a network of mentors that will guide me in my future career. I am sure that the skills learned here will be a good base for my contribution to the changing world of Information Technology.          </p>
         </CardContent>
       </Card>
 

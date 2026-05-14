@@ -4,6 +4,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, GraduationCap, MapPin, IdCard, User } from "lucide-react";
 import logo from "@/assets/ezidea-logo.png";
+import profilePhoto from "@/assets/profile.png";
+import politeknikLogo from "@/assets/politeknik-logo.png";
+import moeLogo from "@/assets/moe-logo.png";
+import ezideaLogo from "@/assets/ezidea-logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -67,49 +71,94 @@ function Home() {
 
       <section>
         <h2 className="font-display text-2xl font-bold mb-4">Student Biodata</h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          {[
-            {
-              icon: User,
-              label: "Name",
-              value: "Hazitz Iklil Bin Hessly Hafiz",
-            },
-            { icon: IdCard, label: "Student ID", value: "17DDT23F1999" },
-            {
-              icon: GraduationCap,
-              label: "Programme",
-              value: "Diploma in Information Technology",
-            },
-            {
-              icon: MapPin,
-              label: "Training Location",
-              value:
-                "Ezidea Solutions Sdn Bhd, Melawati Corporate Center, Kuala Lumpur",
-            },
-          ].map((item, i) => (
-            <motion.div
-              key={item.label}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.05 * i, duration: 0.4 }}
-            >
-              <Card>
-                <CardContent className="flex items-start gap-4 p-5">
-                  <div className="rounded-xl bg-gradient-brand p-3 text-white">
-                    <item.icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      {item.label}
+        <div className="flex flex-col md:flex-row gap-6">
+          {/* Profile Photo Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="w-full md:w-48 shrink-0"
+          >
+            <Card className="overflow-hidden border-2 border-accent/20 h-full aspect-square md:aspect-auto shadow-md">
+              <img 
+                src={profilePhoto} 
+                alt="Hazitz Iklil" 
+                className="w-full h-full object-cover"
+              />
+            </Card>
+          </motion.div>
+
+          {/* Biodata Details Grid */}
+          <div className="grid gap-4 md:grid-cols-2 flex-1">
+            {[
+              {
+                icon: User,
+                label: "Name",
+                value: "Hazitz Iklil Bin Hessly Hafiz",
+              },
+              { icon: IdCard, label: "Student ID", value: "17DDT23F1999" },
+              {
+                icon: GraduationCap,
+                label: "Programme",
+                value: "Diploma in Information Technology",
+              },
+              {
+                icon: MapPin,
+                label: "Training Location",
+                value:
+                  "Ezidea Solutions Sdn Bhd, Melawati Corporate Center, Kuala Lumpur",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.05 * i, duration: 0.4 }}
+              >
+                <Card>
+                  <CardContent className="flex items-start gap-4 p-5">
+                    <div className="rounded-xl bg-gradient-brand p-3 text-white">
+                      <item.icon className="h-5 w-5" />
                     </div>
-                    <div className="mt-1 font-medium">{item.value}</div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                    <div>
+                      <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                        {item.label}
+                      </div>
+                      <div className="mt-1 font-medium">{item.value}</div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* Logos Section */}
+<section className="py-8">
+  <div className="h-1 bg-gradient-to-r from-transparent via-teal-500 to-transparent mb-8" />
+  <div className="border-t-2 border-b-2 border-gradient-brand bg-gradient-to-r from-slate-900/20 via-teal-500/10 to-slate-900/20 py-8">
+    <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 px-4">
+      <img 
+        src={politeknikLogo} 
+        alt="Politeknik Sultan Idris Shah" 
+        className="h-16 md:h-20 object-contain"
+      />
+      <div className="w-px h-12 bg-gradient-brand hidden md:block" />
+      <img 
+        src={moeLogo} 
+        alt="Ministry of Education Malaysia" 
+        className="h-16 md:h-20 object-contain"
+      />
+      <div className="w-px h-12 bg-gradient-brand hidden md:block" />
+      <img 
+        src={ezideaLogo} 
+        alt="Ezidea Solutions Sdn Bhd" 
+        className="h-16 md:h-20 object-contain"
+      />
+    </div>
+  </div>
+</section>
 
       <section className="grid gap-4 md:grid-cols-3">
         {[

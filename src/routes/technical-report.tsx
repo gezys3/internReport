@@ -12,6 +12,12 @@ import {
   CheckCircle2,
   Activity,
 } from "lucide-react";
+import phase1 from "@/assets/phase1.png";
+import phase1_2 from "@/assets/phase1.1.png";
+import phase2 from "@/assets/phase2.png";
+import phase3 from "@/assets/phase3.png";
+import phase3_2 from "@/assets/phase3.1.png";
+import phase4 from "@/assets/phase4.png";
 
 export const Route = createFileRoute("/technical-report")({
   head: () => ({
@@ -62,24 +68,39 @@ const nodes = [
 ];
 
 const phases = [
-  {
-    step: "Step 1",
-    phase: "Phase 1 · Infrastructure Preparation",
-    body: "Installed Rocky Linux on all physical machines and Proxmox virtual machines. Assigned static IP addresses to every node for persistent network connectivity, and configured local /etc/hosts files so machines could resolve one another by name.",
-  },
+ {
+  step: "Step 1",
+  phase: "Phase 1 · Infrastructure Preparation",
+  images: [
+    { src: phase1, desc: "Proxmox VE interface showing Rocky Linux VMs configuration" },
+    { src: phase1_2, desc: "Network configuration and static IP assignment" },
+  ],
+  body: "Installed Rocky Linux on all physical machines and Proxmox virtual machines. Assigned static IP addresses to every node for persistent network connectivity, and configured local /etc/hosts files so machines could resolve one another by name.",
+},
+
   {
     step: "Step 2",
     phase: "Phase 2 · Elasticsearch Cluster Configuration",
+    images: [
+    { src: phase2, desc: "Elasticsearch cluster configuration showing YML File setup" },
+  ],
     body: "Deployed the Elasticsearch data layer on the first two nodes. Configuration files were modified to bind them into a single unified cluster — sharing a cluster name, pointing to each other's static IPs for discovery, and designating both as master-eligible. Generated and applied SSL/TLS certificates to encrypt inter-node traffic before starting the services.",
   },
   {
     step: "Step 3",
     phase: "Phase 3 · Kibana Configuration & Status Verification",
+    images: [
+    { src: phase3, desc: "Kibana cluster overview dashboard displaying Green health status" },
+    { src: phase3_2, desc: "Elasticsearch nodes dashboard showing 3 active nodes with 60 shards each" },
+  ],
     body: 'Installed Kibana on its dedicated node, allowed external web access, and securely linked it to the Elasticsearch backend. The "Cluster overview" dashboard confirmed Kibana was healthy and connected. The "Elasticsearch nodes" dashboard showed a perfect Green health status with zero alerts across three active nodes — es01, es02, and es03 (192.168.100.41, .42, .43) — all Online and balanced at exactly 60 data shards each. This confirmed the distributed architecture was stable and fully operational.',
   },
   {
     step: "Step 4",
     phase: "Phase 4 · Fleet Server Deployment",
+    images: [
+    { src: phase4, desc: "Fleet Server enrollment interface in Kibana with agent management dashboard" },
+    ],
     body: "From the Kibana web interface, created a Fleet Server policy pointing to Node 4's static IP and generated a unique service token. Using that token and the install command from Kibana, downloaded and enrolled the Elastic Agent on Node 4 — transforming it into the dedicated Fleet Server, ready to manage and ingest data from agents across the network.",
   },
 ];
@@ -90,34 +111,27 @@ function Page() {
       <PageHeader
         eyebrow="Technical Report"
         title="Elastic Stack — Distributed Observability & Endpoint Management"
-        description="Deployment and configuration of Elasticsearch, Kibana, and Fleet across four nodes — built twice on bare-metal physical machines and on a Proxmox-virtualized environment."
+        description="Deployment and configuration of Elasticsearch, Kibana, and Fleet across four nodes."
       />
 
       {/* Overview */}
       <Card>
         <CardContent className="p-8 space-y-4 text-foreground/90 leading-relaxed">
           <p>
-            This technical report documents the deployment and configuration of
-            a distributed observability and security platform using the{" "}
-            <strong>Elastic Stack</strong> (Elasticsearch, Kibana, and Fleet).
-            The objective was to establish a centralized logging and endpoint
-            management system with visualization across multiple nodes.
+            This technical report describes the deployment and configuration of a distributed observability and security platform based on the{" "} 
+            <strong>Elastic Stack</strong> (Elasticsearch, Kibana and Fleet).
+            The goal was to implement a centralized logging and endpoint management system with visualization across multiple nodes.
           </p>
           <p>
-            The Elastic Stack (formerly the ELK Stack) is a powerful suite of
-            tools for log aggregation, storage, and visualization. To ensure
-            reliability and to compare deployment methodologies, the
-            architecture was built <strong>twice</strong> using identical
-            logical structures: first on{" "}
-            <strong>bare-metal physical machines</strong>, and second in a
-            virtualized environment utilizing <strong>Proxmox</strong> as the
-            hypervisor.
+            The Elastic Stack is a powerful set of tools for log aggregation, storage, and visualization. 
+            To ensure reliability and to compare deployment methodologies. First, on{" "} <strong>bare-metal physical machines</strong>, 
+            and second in a virtualized environment utilizing <strong>Proxmox</strong> as the hypervisor.
           </p>
+ 
           <p>
-            This report provides detailed documentation of the infrastructure
-            setup, configuration procedures, and operational verification of a
-            fully functional Elasticsearch cluster integrated with Kibana for
-            real-time monitoring and Fleet for centralized agent management.
+            This report is a comprehensive account of the infrastructure setup process, 
+            configuration steps and operational testing of a fully functional Elasticsearch cluster, 
+            integrated with Kibana for real-time monitoring and Fleet for centralized agent management.
           </p>
         </CardContent>
       </Card>
@@ -221,50 +235,71 @@ function Page() {
             >
               <Card className="overflow-hidden">
                 <CardContent className="p-0">
-                  <div className="flex">
-                    <div className="bg-gradient-brand text-primary-foreground w-24 md:w-32 flex-shrink-0 flex items-center justify-center p-6">
-                      <div className="text-center">
-                        <div className="text-[10px] font-semibold uppercase tracking-widest text-white/70">
-                          Step
-                        </div>
-                        <div className="font-display text-3xl md:text-4xl font-extrabold text-white">
-                          {i + 1}
+                  <div className="flex flex-col">
+                    <div className="flex">
+                      <div className="bg-gradient-brand text-primary-foreground w-24 md:w-32 flex-shrink-0 flex items-center justify-center p-6">
+                        <div className="text-center">
+                          <div className="text-[10px] font-semibold uppercase tracking-widest text-white/70">
+                            Step
+                          </div>
+                          <div className="font-display text-3xl md:text-4xl font-extrabold text-white">
+                            {i + 1}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="p-6 flex-1">
-                      <Badge variant="secondary" className="mb-2">
-                        {p.step}
-                      </Badge>
-                      <h3 className="font-display text-lg font-bold">
-                        {p.phase}
-                      </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-foreground/85">
-                        {p.body}
-                      </p>
-                      {i === 2 && (
-                        <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2">
-                          {[
-                            { k: "Health", v: "Green" },
-                            { k: "Alerts", v: "0" },
-                            { k: "Nodes Online", v: "3 / 3" },
-                            { k: "Shards / node", v: "60" },
-                          ].map((s) => (
-                            <div
-                              key={s.k}
-                              className="rounded-lg border bg-muted/40 p-3 text-center"
-                            >
-                              <div className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
-                                {s.k}
+                      <div className="p-6 flex-1">
+                        <Badge variant="secondary" className="mb-2">
+                          {p.step}
+                        </Badge>
+                        <h3 className="font-display text-lg font-bold">
+                          {p.phase}
+                        </h3>
+                        <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+                          {p.body}
+                        </p>
+                        {i === 2 && (
+                          <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2">
+                            {[
+                              { k: "Health", v: "Green" },
+                              { k: "Alerts", v: "0" },
+                              { k: "Nodes Online", v: "3 / 3" },
+                              { k: "Shards / node", v: "60" },
+                            ].map((s) => (
+                              <div
+                                key={s.k}
+                                className="rounded-lg border bg-muted/40 p-3 text-center"
+                              >
+                                <div className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+                                  {s.k}
+                                </div>
+                                <div className="mt-0.5 font-display font-bold text-accent">
+                                  {s.v}
+                                </div>
                               </div>
-                              <div className="mt-0.5 font-display font-bold text-accent">
-                                {s.v}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </div>
+
+
+{/* Image Section */}
+{p.images && (
+  <div className="px-6 py-6 border-t border-slate-700 space-y-6">
+    {p.images.map((img, imgIndex) => (
+      <div key={imgIndex}>
+        <img
+          src={img.src}
+          alt={img.desc}
+          className="w-full h-auto object-cover rounded-lg border border-slate-700 mb-3"
+        />
+        <p className="text-sm text-muted-foreground italic">
+          Figure {i + 1}.{imgIndex + 1}: {img.desc}
+        </p>
+      </div>
+    ))}
+  </div>
+)}
                   </div>
                 </CardContent>
               </Card>
