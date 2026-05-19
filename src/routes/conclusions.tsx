@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { Card, CardContent } from "@/components/ui/card";
-import { GraduationCap, TrendingUp, Award, Heart } from "lucide-react";
+import { GraduationCap, TrendingUp, Award, Heart, Lightbulb } from "lucide-react";
 
 export const Route = createFileRoute("/conclusions")({
   head: () => ({
@@ -43,7 +43,7 @@ function Page() {
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       <PageHeader
-        eyebrow="Section 06"
+        eyebrow="Section 05"
         title="Conclusion"
         description="Reflecting on a transformative 20-week journey and looking forward to the next chapter in my professional career."
       />
@@ -56,11 +56,67 @@ function Page() {
           <p>
             From the first weeks of learning the basics of TCP/IP to the last stages of deploying a sophisticated Elastic observability stack for UTM API Management project, all tasks have contributed to a more holistic understanding of IT operations. Modern technology is not about individual tools but about building resilient, interconnected systems that deliver <em>Continuity by Design</em>.          </p>
           <p>
-            This experience has really helped me to bridge the gap between the theoretical knowledge I got from Politeknik and the practical realities of the tech industry. “Troubleshooting hardware, migrating data… These challenges have really improved my analytical thinking and problem-solving skills.          </p>
+            This experience has really helped me to bridge the gap between the theoretical knowledge I got from Politeknik and the practical realities of the tech industry. "Troubleshooting hardware, migrating data… These challenges have really improved my analytical thinking and problem-solving skills.          </p>
           <p>
             In conclusion, I am leaving Ezidea Solutions with technical knowledge but also with the professional discipline and a network of mentors that will guide me in my future career. I am sure that the skills learned here will be a good base for my contribution to the changing world of Information Technology.          </p>
         </CardContent>
       </Card>
+
+      <section>
+        <h2 className="font-display text-2xl font-bold mb-4 flex items-center gap-2">
+          <Lightbulb className="h-6 w-6 text-accent" />
+          Suggestions for Improvement
+        </h2>
+        <div className="grid gap-6 md:grid-cols-2">
+          <Card>
+            <CardContent className="p-6">
+              <h3 className="font-semibold text-lg mb-3">For the Company</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex gap-2">
+                  <span className="text-accent font-bold">•</span>
+                  <span>Establish a formal mentorship programme to pair interns with senior engineers for structured knowledge transfer and career guidance.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-accent font-bold">•</span>
+                  <span>Develop comprehensive onboarding documentation and training materials to accelerate intern ramp-up time on company infrastructure and processes.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-accent font-bold">•</span>
+                  <span>Create a mid-term feedback session at the 10-week mark to discuss intern progress, address challenges, and adjust learning objectives as needed.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-accent font-bold">•</span>
+                  <span>Provide more hands-on opportunities for interns to contribute to live production projects under supervised guidance.</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent className="p-6">
+              <h3 className="font-semibold text-lg mb-3">For Myself</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex gap-2">
+                  <span className="text-accent font-bold">•</span>
+                  <span>Deepen expertise in cloud infrastructure (AWS, Azure) to complement on-premise and virtualized infrastructure knowledge.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-accent font-bold">•</span>
+                  <span>Pursue relevant industry certifications (CompTIA Security+, Certified Kubernetes Administrator) to enhance professional credentials.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-accent font-bold">•</span>
+                  <span>Improve documentation and technical writing skills to produce clearer, more professional reports and knowledge base articles.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-accent font-bold">•</span>
+                  <span>Build a personal portfolio of completed projects and contribute to open-source initiatives to showcase capabilities to future employers.</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
 
       <section>
         <h2 className="font-display text-2xl font-bold mb-4">Final Reflections</h2>

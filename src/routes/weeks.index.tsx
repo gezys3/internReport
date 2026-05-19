@@ -13,7 +13,7 @@ function WeeksIndex() {
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       <PageHeader
-        eyebrow="Section 05"
+        eyebrow="Section 04"
         title="Weekly Activities"
         description="A chronological log of tasks, technical focus areas, and reflections throughout the 20-week industrial training period."
       />

@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WeeksRouteImport } from './routes/weeks'
 import { Route as TechnicalReportRouteImport } from './routes/technical-report'
+import { Route as ReferencesRouteImport } from './routes/references'
 import { Route as OrganizationRouteImport } from './routes/organization'
 import { Route as IntroductionRouteImport } from './routes/introduction'
 import { Route as ConclusionsRouteImport } from './routes/conclusions'
@@ -27,6 +28,11 @@ const WeeksRoute = WeeksRouteImport.update({
 const TechnicalReportRoute = TechnicalReportRouteImport.update({
   id: '/technical-report',
   path: '/technical-report',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferencesRoute = ReferencesRouteImport.update({
+  id: '/references',
+  path: '/references',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OrganizationRoute = OrganizationRouteImport.update({
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/conclusions': typeof ConclusionsRoute
   '/introduction': typeof IntroductionRoute
   '/organization': typeof OrganizationRoute
+  '/references': typeof ReferencesRoute
   '/technical-report': typeof TechnicalReportRoute
   '/weeks': typeof WeeksRouteWithChildren
   '/weeks/$week': typeof WeeksWeekRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/conclusions': typeof ConclusionsRoute
   '/introduction': typeof IntroductionRoute
   '/organization': typeof OrganizationRoute
+  '/references': typeof ReferencesRoute
   '/technical-report': typeof TechnicalReportRoute
   '/weeks/$week': typeof WeeksWeekRoute
   '/weeks': typeof WeeksIndexRoute
@@ -93,6 +101,7 @@ export interface FileRoutesById {
   '/conclusions': typeof ConclusionsRoute
   '/introduction': typeof IntroductionRoute
   '/organization': typeof OrganizationRoute
+  '/references': typeof ReferencesRoute
   '/technical-report': typeof TechnicalReportRoute
   '/weeks': typeof WeeksRouteWithChildren
   '/weeks/$week': typeof WeeksWeekRoute
@@ -106,6 +115,7 @@ export interface FileRouteTypes {
     | '/conclusions'
     | '/introduction'
     | '/organization'
+    | '/references'
     | '/technical-report'
     | '/weeks'
     | '/weeks/$week'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
     | '/conclusions'
     | '/introduction'
     | '/organization'
+    | '/references'
     | '/technical-report'
     | '/weeks/$week'
     | '/weeks'
@@ -127,6 +138,7 @@ export interface FileRouteTypes {
     | '/conclusions'
     | '/introduction'
     | '/organization'
+    | '/references'
     | '/technical-report'
     | '/weeks'
     | '/weeks/$week'
@@ -139,6 +151,7 @@ export interface RootRouteChildren {
   ConclusionsRoute: typeof ConclusionsRoute
   IntroductionRoute: typeof IntroductionRoute
   OrganizationRoute: typeof OrganizationRoute
+  ReferencesRoute: typeof ReferencesRoute
   TechnicalReportRoute: typeof TechnicalReportRoute
   WeeksRoute: typeof WeeksRouteWithChildren
 }
@@ -157,6 +170,13 @@ declare module '@tanstack/react-router' {
       path: '/technical-report'
       fullPath: '/technical-report'
       preLoaderRoute: typeof TechnicalReportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/references': {
+      id: '/references'
+      path: '/references'
+      fullPath: '/references'
+      preLoaderRoute: typeof ReferencesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/organization': {
@@ -229,6 +249,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConclusionsRoute: ConclusionsRoute,
   IntroductionRoute: IntroductionRoute,
   OrganizationRoute: OrganizationRoute,
+  ReferencesRoute: ReferencesRoute,
   TechnicalReportRoute: TechnicalReportRoute,
   WeeksRoute: WeeksRouteWithChildren,
 }

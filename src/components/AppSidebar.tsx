@@ -8,6 +8,7 @@ import {
   FileText,
   Menu,
   X,
+  BookMarked,
 } from "lucide-react";
 import { useState } from "react";
 import { weeks } from "@/data/weeks";
@@ -20,6 +21,7 @@ const mainItems = [
   { title: "Organization", url: "/organization", icon: Building2 },
   { title: "Weekly Activities", url: "/weeks", icon: CalendarDays },
   { title: "Technical Report", url: "/technical-report", icon: FileText },
+  { title: "References", url: "/references", icon: BookMarked },
   { title: "Conclusion", url: "/conclusions", icon: FileText },
 ];
 
@@ -47,7 +49,7 @@ export function AppSidebar() {
         </Link>
 
         {/* Main Navigation Links - Desktop */}
-        <div className="hidden lg:flex items-center gap-1 flex-wrap justify-center flex-1">
+        <div className="hidden lg:flex items-center gap-1 flex-nowrap justify-center flex-1">
           {mainItems.map((item) => (
             <Link
               key={item.url}

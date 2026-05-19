@@ -44,9 +44,9 @@ function Page() {
   return (
     <div className="space-y-8">
       <PageHeader
-        eyebrow="Section 02"
+        eyebrow="Section 01"
         title="Introduction"
-        description="Industrial training (DUT6019) bridges academic study with professional practice — this report documents that journey at Ezidea Solutions Sdn Bhd."
+        description="Industrial training bridges academic study with professional practice — this report documents that journey at Ezidea Solutions Sdn Bhd."
       />
 
       <Card>
@@ -87,6 +87,36 @@ function Page() {
             </Card>
           ))}
         </div>
+      </section>
+
+      <section>
+        <h2 className="font-display text-2xl font-bold mb-4">Executive Summary</h2>
+        <Card>
+          <CardContent className="p-8 leading-relaxed space-y-4 text-foreground/90">
+            <p>
+              This industrial training report outlines a 20-week thorough attachment at Ezidea Solutions Sdn Bhd, 
+              where I acquired practical experience in enterprise infrastructure, cybersecurity and open-source technologies. 
+              The training program was intended to develop technical competency in multiple domains, beginning with networking 
+              fundamentals and culminating in a distributed Elastic Stack deployment project. 
+              Through hands-on work with Proxmox virtualization, Rocky Linux administration and API Gateway setup,
+              I learned a lot about production-level IT operations and system integration.
+            </p>
+            <p>
+              The training period has key accomplishments such as the successful deployment and configuration of a multi-node 
+              Elasticsearch cluster with kibana visualization and fleet server management in physical and virtualized environments. 
+              I participated in enterprise infrastructure discussions at UMPSA Kuantan, 
+              gained understanding of Active Directory, FSMO roles, and API management concepts. I also maintained weekly logbook entries that documented daily learning outcomes, 
+              technical troubleshooting, and system administration activities, demonstrating continuous professional development and meticulous attention to technical documentation detail.
+            </p>
+            <p>
+              This training has significantly improved my ability to apply theoretical knowledge to practical solutions, 
+              to work effectively within a professional group and to solve complex problems in IT using a structured methodology. 
+              My time at Ezidea Solutions has given me the skills to succeed in entry-level positions in IT Operations, Infrastructure Support and System Administration.
+              I have also been exposed to industry best practices in security, reliability and professional communication. 
+              The technical skills I picked up, including Elastic Stack deployment, Linux server administration and enterprise security, have put me on track for continued growth in the IT industry.
+            </p>
+          </CardContent>
+        </Card>
       </section>
     </div>
   );

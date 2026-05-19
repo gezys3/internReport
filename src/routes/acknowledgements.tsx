@@ -21,7 +21,7 @@ function Page() {
   return (
     <div className="space-y-8">
       <PageHeader
-        eyebrow="Section 01"
+        eyebrow="Section 02"
         title="Acknowledgements"
         description="A note of sincere gratitude to everyone who guided this industrial training journey."
       />

@@ -908,22 +908,52 @@ details: [
 
   {
     number: 19,
-    dates: "Week 19",
-    focus: "Backup & Disaster Recovery",
-    summary:
-      "Tested backup procedures and simulated disaster recovery scenarios.",
-    tasks: [
-      "Configured automated backups for PostgreSQL and Elasticsearch",
-      "Performed a full database restoration test",
-      "Documented disaster recovery protocols",
-    ],
-    tools: ["BorgBackup", "Cron", "rsync"],
-    reflection:
-      "A backup is only as good as its last successful restoration.",
+dates: "Week 19",
+focus: "Event Route Planning & SOC Analyst Exposure",
+
+summary:
+  "Focused on route planning and manpower coordination for PERKESO Run & Ride event.",
+
+tasks: [
+  "Conducted route survey for PERKESO Run & Ride event",
+  "Determined checkpoint manpower requirements at each junction",
+  "Attended briefing session with PERKESO at Jalan Ampang",
+  "Performed event route analysis in Putrajaya",
+  "Registered for SOC Analyst program organized by Institut Latihan Perindustrian (ILP) Kuala Langat",
+],
+
+tools: [
+  "Google Maps",
+  "Event Planning Documents",
+  "GPX Viewer",
+],
+
+reflection:
+  "This week improved my operational planning and communication skills through involvement in event coordination and route management activities.",
+
+details: [
+  "Activities Completed:",
+  "• Conducted site and route survey for PERKESO Run & Ride event",
+  "• Planned checkpoint placement and manpower allocation for each route junction",
+  "• Attended official briefing session with PERKESO at Jalan Ampang",
+  "• Analyzed event route logistics in Putrajaya",
+  "• Registered for SOC Analyst program under ILP Kuala Langat",
+  "\u00A0",
+
+  "Key Insights & Understanding:",
+  "• Learned basic event management and operational coordination processes",
+  "• Improved understanding of checkpoint planning and workforce coordination",
+  "\u00A0",
+
+  "Impacts:",
+  "• Enhanced communication and field operation management skills",
+  "• Improved planning and logistics coordination abilities for large-scale events",
+],
 
       images: [
       // { src: "/weeks/meeting.jpg", alt: "Meeting with UTM", caption: "First meeting regarding API Gateway" },
-      { src: "/weeks/server1.png", alt: "Networking Study", caption: "Installing Proxmox in Office Server" },
+      { src: "/weeks/putrajaya.png", alt: "Putrajaya Route", caption: "Arrive at Putrajaya to analyst routes" },
+      { src: "/weeks/brief.png", alt: "Briefing perkeso", caption: "PERKESO Event Briefing Session" },
 
     ],
   },
